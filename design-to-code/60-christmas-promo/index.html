@@ -4,18 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Remove the line below if you don't want to use TailwindCSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
+  <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 
 <body>
-  Merry Christmas!
-  You completed all your December's tasks
-  so we decided to get you a gift:
-  50% off on your Yearly Premium Plan
-  GET YOUR GIFT
-
+  <main>
+    <div class="wrapper">
+      <div class="card">
+        <div class="cluster header" data-align="end">
+          <button aria-label="Close">
+            <img src="./assets/imgs/close.svg" width="30px" alt="">
+          </button>
+        </div>
+        <div class="content center-intrinsic">
+          <img src="./assets/imgs/tree.png" alt="">
+          <h2>Merry Christmas!</h2>
+          <p class="text-sm">You completed all your December's tasks so we decided to get you a gift:</p>
+          <p class="text-accent fw-500">50% off on your Yearly Premium Plan</p>
+          <button class="button">GET YOUR GIFT</button>
+        </div>
+      </div>
+    </div>
+  </main>
 </body>
 
 </html>

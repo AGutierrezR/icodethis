@@ -1,0 +1,155 @@
+@layer reset, base, layout, components, utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url('./reset.css') layer(reset);
+
+@layer base {
+  :root {
+    --color-main-background: #EFF0F2;
+    --color-card-background: #FFF;
+    --color-foreground-1: #232A47;
+    --color-foreground-2: #CF8204;
+
+    --color-primary: #242E4D;
+
+    --ff-body: 'Inconsolata', monospace;
+    --ff-alt: 'Poppins', sans-serif;
+    --ff-buttons: 'Poppins', sans-serif;
+
+    --wrapper-width: min(1240px, 100%);
+    --gutter: 1.5rem;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-main-background);
+    color: var(--color-foreground-1);
+    font-size: 0.875rem;
+    font-family: var(--ff-body);
+    line-height: 1.5;
+  }
+
+  main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  h2 {
+    font-weight: 600;
+    font-size: 1.375rem;
+    line-height: 1.2; 
+  }
+
+  button {
+    border: none;
+    cursor: pointer;
+    font-family: var(--ff-buttons);
+  }
+}
+
+@layer layout {
+  .wrapper {
+    width: var(--wrapper-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    position: relative;
+  }
+
+  .cluster {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gutter, var(--space-s-l));
+    justify-content: var(--cluster-horizontal-alignment, flex-start);
+    align-items: var(--cluster-vertical-alignment, center);
+  }
+
+  .cluster[data-align="end"] {
+    --cluster-horizontal-alignment: flex-end;
+  }
+
+  .center-intrinsic {
+    box-sizing: content-box;
+    max-inline-size: 60ch;
+    margin-inline: auto;
+    padding-inline-start: var(--s1);
+    padding-inline-end: var(--s1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@layer components {
+  .button {
+    background-color: var(--color-primary);
+    color: var(--color-card-background);
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .card {
+    background-color: var(--color-card-background);
+    border-top-right-radius: 24px;
+    max-width: 440px;
+    margin-inline: auto;
+
+    /* This shadow is from https://smoothshadows.com/ */
+    box-shadow: 0px 1px 1px rgba(115, 115, 115, 0.02),
+      0px 3px 4px rgba(115, 115, 115, 0.03),
+      0px 6px 9px rgba(115, 115, 115, 0.05),
+      1px 10px 15px rgba(115, 115, 115, 0.06),
+      1px 16px 24px rgba(115, 115, 115, 0.08);
+  }
+
+  .card .header {
+    padding: 1rem;
+  }
+
+  .card .content {
+    padding: 4rem;
+    padding-top: 0;
+    text-align: center;
+  }
+
+  .card .content>*+* {
+    margin-top: 1rem;
+  }
+
+  /* Exceptions from the rule above */
+  .card .content>h2+*,
+  .card .content>*+button {
+    margin-top: 2.5rem;
+  }
+
+  .card p {
+    max-width: 40ch
+  }
+
+  .card .button {
+    width: 100%;
+    max-width: 240px;
+  }
+}
+
+@layer utilities {
+  .fw-500 {
+    font-weight: 500;
+  }
+
+  .text-accent {
+    color: var(--color-foreground-2);
+  }
+
+  .text-sm {
+    font-size: 0.75rem;
+  }
+}
